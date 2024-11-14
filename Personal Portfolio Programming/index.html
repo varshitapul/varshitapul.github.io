@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Varshita Pulidindi - Portfolio</title>
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+		/>
+		<style>
+			/* General Reset and Body Styling */
+			* {
+				margin: 0;
+				padding: 0;
+				box-sizing: border-box;
+				font-family: "Inter", "Arial", sans-serif;
+			}
+
+			body {
+				background-color: #ffffff;
+				color: #333;
+				line-height: 1.6;
+			}
+
+			/* Full-width Section Styling */
+			.section {
+				width: 100vw;
+				padding: 5rem 10%;
+			}
+
+			/* Navigation Styling */
+			nav {
+				position: fixed;
+				top: 0;
+				width: 100%;
+				background-color: rgba(255, 255, 255, 0.95);
+				padding: 1.5rem 10%;
+				display: flex;
+				justify-content: flex-end;
+				gap: 2rem;
+				z-index: 1000;
+				box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+				font-weight: 600;
+			}
+
+			.nav-link {
+				color: #333;
+				text-decoration: none;
+				font-weight: 500;
+				font-size: 1.1rem;
+				transition: color 0.3s ease;
+			}
+
+			.nav-link:hover {
+				color: #0066cc;
+			}
+
+			/* Hero Section Styling */
+			.hero-section {
+				min-height: 100vh;
+				display: flex;
+				align-items: center;
+				padding: 0 10%;
+				background-color: #d6e8e1;
+				position: relative;
+			}
+
+            /* Updated Hero Content Styling */
+            .hero-content {
+                display: flex;
+                align-items: center;
+                gap: 4rem;
+            }
+
+            .hero-text {
+                flex: 1;
+            }
+
+            .profile-picture {
+                width: 400px;
+                height: 400px;
+                object-fit: cover;
+                border: 4px solid white;
+                box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            }
+
+			.hero-content h1 {
+				font-size: 4rem;
+				margin-bottom: 1rem;
+				color: #1a1a1a;
+			}
+
+			.hero-content p {
+				font-size: 1.25rem;
+				color: #666;
+				margin-bottom: 2rem;
+				max-width: 600px;
+			}
+
+			.cta-button {
+				display: inline-block;
+				padding: 1rem 2.5rem;
+				background-color: #0066cc;
+				color: white;
+				text-decoration: none;
+				border-radius: 30px;
+				transition: background-color 0.3s ease;
+				font-size: 1.1rem;
+			}
+
+			.cta-button:hover {
+				background-color: #0052a3;
+			}
+
+			/* Sidebar Styling */
+			.contact-sidebar {
+				position: absolute;
+				left: 20px;
+				top: 50%;
+				transform: translateY(-50%);
+				display: flex;
+				flex-direction: column;
+				gap: 1rem;
+			}
+
+			.contact-sidebar a {
+				color: #333;
+				font-size: 1.5rem;
+				text-decoration: none;
+				transition: color 0.3s ease;
+			}
+
+			.contact-sidebar a:hover {
+				color: #0066cc;
+			}
+
+			/* About Section Styling */
+			.about-section {
+				background-color: #404b4a;
+				color: #ffffff;
+				display: grid;
+				grid-template-columns: 1fr 1fr;
+				gap: 3rem;
+				align-items: center;
+			}
+
+			.section-title {
+				font-size: 2.5rem;
+				margin-bottom: 2rem;
+				color: #ffffff;
+				font-weight: 600;
+			}
+
+			/* Skills List Styling */
+			.skills-list {
+				display: grid;
+				grid-template-columns: repeat(3, 1fr);
+				gap: 1rem;
+				margin-top: 2rem;
+			}
+
+			.skill-item {
+				background-color: #f0f0f0;
+				padding: 0.75rem 1.5rem;
+				border-radius: 5px;
+				text-align: center;
+				font-size: 1rem;
+				font-weight: 500;
+				color: #404b4a;
+			}
+
+			/* Projects Section Styling */
+			#projects {
+				background-color: #8a9995;
+			}
+
+			.projects-grid {
+				display: grid;
+				grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+				gap: 2rem;
+				margin-top: 3rem;
+			}
+
+            /* Updated Project Card Styling */
+            .project-card {
+                background-color: white;
+                border-radius: 10px;
+                overflow: hidden;
+                box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+                transition: transform 0.3s ease;
+                text-decoration: none;
+                color: inherit;
+            }
+
+            .project-image {
+                width: 100%;
+                height: 350px;
+                object-fit: scale-down;
+            }
+
+            .project-content {
+                padding: 1.5rem;
+            }
+
+            .project-content h3 {
+                margin-bottom: 0.5rem;
+                color: #333;
+            }
+
+            .project-content p {
+                color: #666;
+            }
+
+			.project-card:hover {
+				transform: translateY(-5px);
+			}
+
+			/* Current Work Section Styling */
+			.current-work {
+				background-color: #404b4a;
+				color: #ffffff;
+			}
+
+			.work-grid {
+				display: grid;
+				grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+				gap: 2rem;
+				margin-top: 3rem;
+			}
+
+			.work-card {
+				background-color: white;
+				padding: 2rem;
+				border-radius: 10px;
+				box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+				color: #333;
+			}
+
+			/* Contact Section Styling */
+			.contact-section {
+				background-color: #d6e8e1;
+				text-align: center;
+				color: #333;
+				padding: 4rem 2rem;
+			}
+
+			.contact-section .section-title {
+             color: #007b5e; /* Change this to your desired color */
+             font-size: 2rem; /* Adjust the font size if needed */
+            }
+
+			.contact-section p {
+				max-width: 600px;
+				margin: 0 auto;
+				font-size: 1.1rem;
+				line-height: 1.8;
+			}
+
+			/* Responsive Styling */
+			@media (max-width: 768px) {
+				.about-section {
+					grid-template-columns: 1fr;
+					gap: 2rem;
+				}
+
+				.hero-content h1 {
+					font-size: 2.5rem;
+				}
+
+				.skills-list {
+					grid-template-columns: repeat(2, 1fr);
+				}
+
+				nav {
+					justify-content: center;
+					padding: 1rem;
+				}
+
+				.contact-sidebar {
+					left: 10px;
+				}
+
+                .hero-content {
+                    flex-direction: column-reverse;
+                    text-align: center;
+                    gap: 2rem;
+                }
+
+                .profile-picture {
+                    width: 200px;
+                    height: 200px;
+                }
+
+                .project-image {
+                    height: 200px;
+                }
+			}
+		</style>
+	</head>
+	<body>
+		<nav>
+			<a href="#about" class="nav-link">About</a>
+			<a href="#projects" class="nav-link">Projects</a>
+			<a href="#current-work" class="nav-link">Current Work</a>
+			<a href="#contact" class="nav-link">Contact</a>
+			<a href="resume.pdf" class="nav-link" target="_blank">Resume</a>
+		</nav>
+
+		<section class="hero-section">
+			<div class="contact-sidebar">
+                  <a
+					href="https://www.linkedin.com/in/varshita-pulidindi-694818297/"
+					target="_blank"
+					aria-label="LinkedIn"
+				>
+					<i class="fab fa-linkedin"></i>
+				</a>
+				<a
+					href="https://www.instagram.com/varshita_045/"
+					target="_blank"
+					aria-label="Instagram"
+				>
+					<i class="fab fa-instagram"></i>
+				</a>
+				<a
+					href="mailto:varshita.pulidindi@flame.edu.in"
+					aria-label="Email"
+				>
+					<i class="far fa-envelope"></i>
+				</a>
+			</div>
+			</div>
+
+			<div class="hero-content">
+				<div class="hero-text">
+					<h1>Hi, I am<br />Varshita Pulidindi</h1>
+					<p>
+						I create impactful designs for a better tomorrow. I'm a
+						design major and psychology minor in Flame University,
+						driven to make a positive impact through design, combining
+						creativity and empathy to solve real-world challenges.
+					</p>
+					<a href="#contact" class="cta-button">Get in Touch</a>
+				</div>
+				<img 
+					src="images/Profile picture for portfolio.jpeg" 
+					alt="Varshita Pulidindi" 
+					class="profile-picture"
+				/>
+			</div>
+		</section>
+
+		<section id="about" class="section about-section">
+			<div>
+				<h2 class="section-title">About Me</h2>
+				<p>
+					I'm a second-year Design major with a minor in Psychology
+					studying at Flame University. My design journey has been
+					shaped by hands-on experiences that combine creativity,
+					technology, and impact.
+				</p>
+				<p>
+					In the Royal Enfield x Maker's Asylum Ghost Net Challenge, I
+					explored using AI and sustainable materials to help remove
+					ghost nets. At the CIID Workshop, I worked with immersive
+					technology, designing an AI-powered sofa that interacts with
+					users.
+				</p>
+				<p>
+					Through my internship with Teach for India, I developed an
+					empathy-driven approach to design by working closely with
+					children. These experiences have helped me develop a
+					well-rounded approach to design, focusing on accessibility, 
+					sustainability, and innovation.
+				</p>
+				
+			</div>
+			<div>
+				<h3>Technologies I'm working with:</h3>
+				<div class="skills-list">
+					<div class="skill-item">Adobe Creative Suite</div>
+					<div class="skill-item">Figma</div>
+					<div class="skill-item">TinkerCad</div>
+					<div class="skill-item">Arduino</div>
+					<div class="skill-item">P5.Js</div>
+					<div class="skill-item">Python</div>
+				</div>
+			</div>
+		</section>
+
+		<section id="projects" class="section">
+			<h2 class="section-title">Projects</h2>
+			<div class="projects-grid">
+				<div class="project-card">
+					<img 
+						src="images/Maker's Asylum X Royal Enfield Challenge project 1.jpg" 
+						alt="Maker's Asylum X Royal Enfield Challenge" 
+						class="project-image"
+					/>
+					<div class="project-content">
+						<h3>Maker's Asylum X Royal Enfield Challenge</h3>
+						<p>
+							Made an AI integrated robot to solve the Ghost Net
+							issue in Goa
+						</p>
+					</div>
+				</div>
+
+				<a
+					href="https://github.com/varshitapul/varshitapul.github.io/blob/main/world_timezone_converter.py"
+					target="_blank"
+					class="project-card"
+				>
+					<img 
+						src="images/World TIme Converter on Python project 4.jpg" 
+						alt="Time Converter Project" 
+						class="project-image"
+					/>
+					<div class="project-content">
+						<h3>Time Converter on Python</h3>
+						<p>
+							Created a time converter that can convert the time
+							from any location in the world to any other location
+						</p>
+					</div>
+				</a>
+
+				<div class="project-card">
+					<img 
+						src="images/Graphic design Branding Project 3.png" 
+						alt="VibeSpace Branding" 
+						class="project-image"
+					/>
+					<div class="project-content">
+						<h3>VibeSpace Branding Project</h3>
+						<p>
+							Did the branding for a company that excelled in
+							making immersive home environments with interactive
+							wall art, soundscapes and lighting
+						</p>
+					</div>
+				</div>
+
+				<a
+					href="https://www.instagram.com/p/C4V9Nwws7iT/?igsh=MXZwamNoNGN5c2NlMg=="
+					target="_blank"
+					class="project-card"
+				>
+					<img 
+						src="images/Titan X Yanko Design Challenge project 2.JPG" 
+						alt="Titan X Yanko Design Challenge" 
+						class="project-image"
+					/>
+					<div class="project-content">
+						<h3>Titan X Yanko Design Challenge</h3>
+						<p>
+							Made a watch inspired from the flip clocks back in
+							the day for the theme retrofuturism
+						</p>
+					</div>
+				</a>
+			</div>
+		</section>
+
+		<section id="current-work" class="section current-work">
+			<h2 class="section-title">What I'm Currently Working on</h2>
+			<div class="work-grid">
+				<div class="work-card">
+					<h3>Enhanced Communication for Special needs</h3>
+					<p>
+						Develop a communication tool to improve interactions
+						between teachers and mentally challenged students
+					</p>
+				</div>
+				<div class="work-card">
+					<h3>Drainage Clog Solution</h3>
+					<p>
+						Design a simple and effective solution to prevent and
+						address sink and shower drain clogs
+					</p>
+				</div>
+				<div class="work-card">
+					<h3>Sensory Toy for Special Needs Kids</h3>
+					<p>
+						Create a toy that provides sensory stimulation tailored
+						for mentally challenged children
+					</p>
+				</div>
+			</div>
+		</section>
+
+		<section id="contact" class="section contact-section">
+			<h2 class="section-title">Get In Touch</h2>
+			<p>
+				I'm always open to discussing new ideas, collaborations, or
+				simply connecting. I'm currently looking for opportunities in
+				design, product innovation, and user experience.
+			</p>
+			<p>
+				Whether you have a project in mind or just want to say hello,
+				feel free to reach out!
+			</p>
+			<a href="mailto:varshita.pulidindi@flame.edu.in" class="cta-button"
+				>Say Hello</a
+			>
+		</section>
+
+		<script>
+			// Smooth scrolling for navigation links
+			document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+				anchor.addEventListener("click", function (e)
